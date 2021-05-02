@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 public class EditableListActivity extends AppCompatActivity {
 
     //create an instance of the class databasehelper
@@ -42,9 +44,12 @@ public class EditableListActivity extends AppCompatActivity {
                 String newName = editTextName.getText().toString();
                 String newNumber = editTextNumber.getText().toString();
                 String newText = editText.getText().toString();
-                if (editText.length() != 0){
+                if (editText.length() != 0 && editTextNumber.length() != 0 && editTextName.length() != 0){
                     AddData(newName, newNumber, newText);
                     editText.setText("");
+                    editTextName.setText("");
+                    editTextNumber.setText("");
+
                 }else {
                     Toast.makeText(EditableListActivity.this, "Enter something in the box", Toast.LENGTH_LONG).show();
                 }

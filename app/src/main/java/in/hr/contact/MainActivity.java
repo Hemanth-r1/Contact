@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         ListView listView = findViewById(R.id.listView);
         // create the person objects
         Person john = new Person("John", "123456789", "someone");

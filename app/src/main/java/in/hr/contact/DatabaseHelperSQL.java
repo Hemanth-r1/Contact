@@ -50,9 +50,10 @@ public class DatabaseHelperSQL extends SQLiteOpenHelper {
             return true;
         }
     }
+
     public Cursor getListContents(){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor data = db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+        Cursor data = db.rawQuery(" SELECT * FROM " + TABLE_NAME, null);
         return  data;
     }
 }
