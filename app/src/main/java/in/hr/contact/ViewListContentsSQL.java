@@ -30,12 +30,14 @@ public class ViewListContentsSQL extends AppCompatActivity {
         myDB = new DatabaseHelperSQL(this);
 
         ArrayList<String> theList = new ArrayList<>();
-        Cursor data = myDB.getListContents();
+        Cursor data1 = myDB.getListContents();
+        Cursor data2 = myDB.getListContents();
+        Cursor data3 = myDB.getListContents();
 
-        if (data.getCount() == 0) {
+        if (data1.getCount() == 0) {
             Toast.makeText(ViewListContentsSQL.this, "the database is empty", Toast.LENGTH_LONG).show();
         } else {
-            while (data.moveToNext()) {
+            while (data1.moveToNext() && data2.moveToNext() && data3.moveToNext()) {
 
                 /*
            theList.add(1, data.getString(1));
@@ -44,12 +46,13 @@ public class ViewListContentsSQL extends AppCompatActivity {
                 //TODO only showing a single text view here and layout is android.R.layout.simple_list_item_1, need to change it
                  */
 
-                theList.add(data.getString(1));
-                theList.add(data.getString(2));
-                theList.add(data.getString(3));
+                theList.add(data1.getString(1));
+                theList.add(data2.getString(2));
+                theList.add(data3.getString(3));
 
-                // ViewListAdapterSQL listAdapter = new ViewListAdapterSQL(this, R.layout.list_item_view_sql, theList);
 
+                 //ViewListAdapterSQL listAdapter = new ViewListAdapterSQL(this, R.layout.list_item_view_sql, theList);
+                //ListAdapter listAdapter = new ArrayAdapter<>(this, R.layout.list_item_view_sql, theList);
                 ListAdapter listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, theList);
                 listView.setAdapter(listAdapter);
             }

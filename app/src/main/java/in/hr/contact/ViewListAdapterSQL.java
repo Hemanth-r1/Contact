@@ -28,6 +28,8 @@ public class ViewListAdapterSQL extends ArrayAdapter<ListGetSet> {
     @Override
     public View getView(int position, @Nullable View convertViewSQL, @NonNull ViewGroup parent) {
         // using getter and setter here to get the value from the Person class
+
+
         String nameSQL = getItem(position).getTextNameSQL();
         String numberSQL = getItem(position).getTextNumberSQL();
         String textSQL = getItem(position).getTextViewSQL();
@@ -36,8 +38,12 @@ public class ViewListAdapterSQL extends ArrayAdapter<ListGetSet> {
         ListGetSet listGetSet = new ListGetSet(nameSQL, numberSQL, textSQL);
 
         LayoutInflater layoutInflater = LayoutInflater.from(sqlContext);
-        convertViewSQL = layoutInflater.inflate(sqlResources, parent, false);
+        convertViewSQL = layoutInflater.inflate(R.layout.list_item_view_sql, parent, false);
 
+        listGetSet.setTextNameSQL(nameSQL);
+        listGetSet.setTextNumberSQL(numberSQL);
+        listGetSet.setTextNumberSQL(textSQL);
+        /*
         TextView textViewNameSQL = convertViewSQL.findViewById(R.id.textViewNameSQL);
         TextView textViewNumberSQL = convertViewSQL.findViewById(R.id.textViewNumberSQL);
         TextView textViewSQL = convertViewSQL.findViewById(R.id.textViewSQL);
@@ -45,6 +51,8 @@ public class ViewListAdapterSQL extends ArrayAdapter<ListGetSet> {
         textViewNameSQL.setText(nameSQL);
         textViewNumberSQL.setText(numberSQL);
         textViewSQL.setText(textSQL);
+
+         */
 
         return  convertViewSQL;
     }
